@@ -1,6 +1,6 @@
 scripts:
   test:
-    - deno test -A --unstable --coverage=coverage/deno
+    - deno test -A --unstable --coverage=coverage/deno cli.test.ts
     - deno run --allow-read --allow-write --unstable cli.ts convert coverage/deno coverage/tmp
     - npx c8 report -r html --check-coverage --per-file
   coverage:

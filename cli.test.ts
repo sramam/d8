@@ -18,8 +18,6 @@ Deno.test(`coverage report generation`, async () => {
   });
   console.log(`Successfully cloned repo ${url}`);
 
-  console.log(Deno.env.toObject());
-
   // 2. Run the tests
   await runCmd(
     "deno test -A --unstable --coverage=coverage/deno",
@@ -41,7 +39,6 @@ async function runCmd(command: string, cwd: string, msg: string = command) {
   const sh = resolveShell();
   const prefix = Deno.build.os === "windows" ? "/C" : "-c";
   const cmd = [sh, prefix, command];
-  console.log(cmd);
   const runner = await Deno.run({
     cmd,
     cwd,
