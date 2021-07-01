@@ -22,14 +22,13 @@ Deno.test(`coverage report generation`, async () => {
   await runCmd(
     "deno test -A --unstable --coverage=coverage/deno",
     dir,
-    `${moduleName} tests`,
+    `${moduleName} tests`
   );
 
   // 3. Convert the deno output
   const denoDir = `.tmp/${moduleName}/coverage/deno`;
   const c8Dir = `.tmp/${moduleName}/coverage/tmp`;
-  const cmd =
-    `deno run --allow-read --allow-write --unstable cli.ts convert ${denoDir} ${c8Dir}`;
+  const cmd = `deno run --allow-read --allow-write --unstable cli.ts convert ${denoDir} ${c8Dir}`;
   await runCmd(cmd, Deno.cwd(), "d8 covert");
 
   // 4. Generate reports
@@ -40,6 +39,7 @@ async function runCmd(command: string, cwd: string, msg: string = command) {
   const sh = resolveShell();
   const prefix = Deno.build.os === "windows" ? "/C" : "-c";
   const cmd = [sh, prefix, command];
+  console.log(cmd);
   const runner = await Deno.run({
     cmd,
     cwd,
@@ -63,14 +63,15 @@ async function runCmd(command: string, cwd: string, msg: string = command) {
 }
 
 function resolveShell(): string {
-  const shells: string[] = Deno.build.os === "windows"
-    ? [
-      Deno.env.get("ComSpec") as string,
-      `c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe`,
-      `c:/Windows/system32/cmd.exe`,
-      `cmd.exe`,
-    ]
-    : [Deno.env.get("SHELL") as string, "sh"];
+  const shells: string[] =
+    Deno.build.os === "windows"
+      ? [
+          Deno.env.get("ComSpec") as string,
+          `c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe`,
+          `c:/Windows/system32/cmd.exe`,
+          `cmd.exe`,
+        ]
+      : [Deno.env.get("SHELL") as string, "sh"];
 
   return shells.reduce((sh, curr) => {
     try {
