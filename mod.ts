@@ -1,4 +1,4 @@
-import { walk, ensureDir, emptyDir, exists } from "./deps.ts";
+import { emptyDir, ensureDir, exists, walk } from "./deps.ts";
 
 export interface Args {
   denoDir: string;
@@ -7,9 +7,10 @@ export interface Args {
   trace?: boolean;
 }
 
-const Debug = (trace: boolean) => (msg: string) => {
-  if (trace) console.log(msg);
-};
+const Debug = (trace: boolean) =>
+  (msg: string) => {
+    if (trace) console.log(msg);
+  };
 
 let debug: (msg: string) => void;
 
@@ -44,7 +45,7 @@ export default async function d8({ denoDir, c8Dir, clean, trace }: Args) {
  */
 async function collate(
   istanbulInputDir: string,
-  collation: { result: unknown[] } = { result: [] }
+  collation: { result: unknown[] } = { result: [] },
 ) {
   for await (const entry of walk(istanbulInputDir, { includeDirs: false })) {
     const raw = await Deno.readTextFile(entry.path);

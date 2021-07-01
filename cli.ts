@@ -13,7 +13,7 @@ await new Command()
       gray(italic(`# install d8:`)),
       `deno install --allow-write --allow-read -n d8 https://nest.land/d8`,
       ` `,
-    ].join("\n")
+    ].join("\n"),
   )
   .example(
     `Report`,
@@ -28,7 +28,7 @@ await new Command()
       gray(italic(`# generate reports with c8`)),
       `npx c8 report -r html`,
       ` `,
-    ].join(`\n`)
+    ].join(`\n`),
   )
   .example(
     `Report & Coverage`,
@@ -44,7 +44,7 @@ await new Command()
       `npx c8 report -r html --check-coverage --per-file`,
       gray(italic(`# (see c8 docs for more details)`)),
       ` `,
-    ].join(`\n`)
+    ].join(`\n`),
   )
   .command(
     "convert <deno-dir:string> <c8-dir:string>",
@@ -65,6 +65,6 @@ await new Command()
           clean,
           trace,
         });
-      })
+      }),
   )
   .parse(Deno.args);
