@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  action_ci:
+    name: D8
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macOS-latest, windows-latest, ubuntu-latest]
+        deno: [v1.x]
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Run tests
+        run: deno test --coverage=./coverage --allow-all --unstable
+
+      - name: Transform coverage to c8 compatible format
+        run: deno run --allow-read --allow-write --unstable cli.ts convert coverage/deno coverage/tmp
+      
+      - name: Generate a C8 report
+        run: npx c8 report -r html
