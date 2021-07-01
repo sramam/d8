@@ -1,6 +1,8 @@
 # d8
 
-`d8` is a pre-processor for coverage output from deno, making it palatable for use with [`c8`](https://github.com/bcoe/c8). This enables access to `istanbul`'s rich set of reporting options.
+`d8` is a pre-processor for coverage output from deno, making it palatable for
+use with [`c8`](https://github.com/bcoe/c8). This enables access to `istanbul`'s
+rich set of reporting options.
 
 ## Installation
 
@@ -8,12 +10,10 @@
 
 ## Usage
 
-
 > NOTE
->
+
 > - `c8` only consumes coverage output in `./coverage/tmp`
 > - This means second argument to `d8 convert` should be set to `./coverage/tmp`
-
 
 ```
 Usage:   d8
@@ -61,11 +61,11 @@ Usage:   d8
 
 ### Why is this not a wrapper for `c8`?
 
-Unfortunately, a `c8` dependency uses an unsupported node.js core API and prevents
-this module from being used as deno module.
+Unfortunately, a `c8` dependency uses an unsupported node.js core API and
+prevents this module from being used as deno module.
 
         ```
-        ..  Installing c8 from esm.sh
-        error: Import 'https://cdn.esm.sh/error.js?type=unsupported-nodejs-builtin-module&name=module&importer=v8-to-istanbul' failed: 500 Internal Server Error
-        error: Uncaught (in promise) this package is invalid or the url is invalid
-        ```
+            ..  Installing c8 from esm.sh
+            error: Import 'https://cdn.esm.sh/error.js?type=unsupported-nodejs-builtin-module&name=module&importer=v8-to-istanbul' failed: 500 Internal Server Error
+            error: Uncaught (in promise) this package is invalid or the url is invalid
+            ```

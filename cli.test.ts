@@ -1,4 +1,4 @@
-import { fs, git, http } from "https://x.nest.land/iso-git@0.1.6/mod.ts";
+import { fs, git, http } from "https://x.nest.land/iso-git@0.1.7/mod.ts";
 import { emptyDir } from "./deps.ts";
 
 Deno.test(`coverage report generation`, async () => {
