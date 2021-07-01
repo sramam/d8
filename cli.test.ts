@@ -18,6 +18,8 @@ Deno.test(`coverage report generation`, async () => {
   });
   console.log(`Successfully cloned repo ${url}`);
 
+  console.log(Deno.env.toObject());
+
   // 2. Run the tests
   await runCmd(
     "deno test -A --unstable --coverage=coverage/deno",
