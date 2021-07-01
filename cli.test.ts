@@ -71,11 +71,10 @@ function resolveShell(): string {
           Deno.env.get("ComSpec") as string,
           `c:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe`,
           `c:/Windows/system32/cmd.exe`,
-          `cmd.exe`,
         ]
-      : [Deno.env.get("SHELL") as string, "sh"];
+      : [Deno.env.get("SHELL") as string];
 
-  return shells.reduce((sh, curr) => {
+  const sh = shells.reduce((sh, curr) => {
     try {
       sh = sh ? sh : Deno.statSync(curr).isFile ? curr : ``;
     } catch {
@@ -83,4 +82,6 @@ function resolveShell(): string {
     }
     return sh;
   }, ``);
+  // if `sh` is not set, use fallbacks
+  return sh ? sh : Deno.build.os === "windows" ? "cmd.exe" : "sh";
 }
