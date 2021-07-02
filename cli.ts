@@ -1,13 +1,12 @@
 import d8 from "./mod.ts";
-import { metadata } from "./metadata.ts";
 import { colors, Command } from "./deps.ts";
-
+import { VERSION } from "./version.ts";
 const { gray, italic } = colors;
 
 await new Command()
   .name("d8")
-  .version(metadata.version)
-  .description(metadata.description)
+  .version(VERSION)
+  .description("Brings istanbul's rich test coverage reporting to deno")
   .example(
     `Install`,
     [
