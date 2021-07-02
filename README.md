@@ -6,7 +6,7 @@ rich set of reporting options.
 
 ## Installation
 
-`deno install --allow-read --allow-write https://nest.land/package/d8`
+`deno install --allow-read --allow-write -n d8 https://x.nest.land/d8@0.1.1/cli.ts`
 
 ## Usage
 
