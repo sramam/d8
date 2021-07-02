@@ -1,8 +1,8 @@
-$schema: "https://x.nest.land/eggs@0.3.8/src/schema.json"
+$schema: 'https://x.nest.land/eggs@0.3.8/src/schema.json'
 name: d8
 entry: ./mod.ts
 description: Brings istanbul's rich test coverage reporting to deno
-homepage: "https://github.com/sramam/d8"
+homepage: 'https://github.com/sramam/d8'
 version: 0.1.1
 releaseType: null
 unstable: false
@@ -14,7 +14,7 @@ files:
   - README.md
   - egg.yml
 ignore:
-  - "**/*.test.*"
+  - '**/*.test.*'
   - .gitignore
   - scripts.yml
 checkFormat: false

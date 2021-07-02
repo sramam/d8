@@ -4,7 +4,8 @@
   "deno.unstable": true,
   "cSpell.words": [
     "deno",
-    "deps"
+    "deps",
+    "postpublish"
   ],
   "deno.suggest.imports.hosts": {
     "https://deno.land": false,

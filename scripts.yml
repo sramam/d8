@@ -7,3 +7,6 @@ scripts:
     - deno run --allow-read --allow-write --unstable cli.ts convert coverage/deno coverage/tmp
     - npx c8 report -r html --check-coverage --per-file
   cli: deno run --unstable --allow-read --allow-write cli.ts
+  publish:
+    - deno run --allow-read --allow-write --unstable pre-publish.ts
+    - eggs publish
