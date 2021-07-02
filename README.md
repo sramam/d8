@@ -6,7 +6,7 @@ rich set of reporting options.
 
 ## Installation
 
-`deno install --allow-read --allow-write --unstable -n d8 https://x.nest.land/d8@0.1.3/cli.ts`
+`deno install --allow-read --allow-write --unstable -n d8 https://x.nest.land/d8@0.1.4/cli.ts`
 
 ## Usage
 
@@ -35,7 +35,7 @@ Usage:   d8
   Examples:
 
     Install:           # install d8:
-                       deno install --allow-read --allow-write --unstable https://x.nest.land/d8@0.1.3/cli.ts
+                       deno install --allow-read --allow-write --unstable https://x.nest.land/d8@0.1.4/cli.ts
 
     Report:
                        # collect deno coverage

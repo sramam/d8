@@ -11,7 +11,7 @@ await new Command()
     `Install`,
     [
       gray(italic(`# install d8:`)),
-      `deno install --allow-write --allow-read -n d8 https://nest.land/d8`,
+      `deno install --allow-read --allow-write --unstable -n d8 https://x.nest.land/d8@${VERSION}/cli.ts`,
       ` `,
     ].join("\n")
   )
